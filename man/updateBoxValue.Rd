@@ -2,9 +2,12 @@
 % Please edit documentation in R/boxes.R
 \name{updateBoxValue}
 \alias{updateBoxValue}
+\alias{updateBoxValues}
 \title{Update the value of an infoBox or valueBox}
 \usage{
 updateBoxValue(session, inputId, value)
+
+updateBoxValues(session, ...)
 }
 \arguments{
 \item{session}{The session object that the infoBox
@@ -20,6 +23,13 @@ an infoBox or valuebox without re-rendering the
 entire box. It is useful for streaming data or
 very regularly updating values
 }
+\section{Functions}{
+\itemize{
+\item \code{updateBoxValues}: Update the values of multiple boxes using
+named arguments where the name is the `inputId` and the value is
+the new `value` for that `inputId`, e.g. `boxId = 12`.
+}}
+
 \seealso{
 \code{\link{infoBox}}, \code{\link{valueBox}}
 

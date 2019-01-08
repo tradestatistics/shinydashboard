@@ -433,3 +433,22 @@ updateBoxValue <- function(session, inputId, value) {
 
   invisible()
 }
+
+#' @describeIn updateBoxValue Update the values of multiple boxes using
+#'   named arguments where the name is the `inputId` and the value is
+#'   the new `value` for that `inputId`, e.g. `boxId = 12`.
+#' @export
+updateBoxValues <- function(session, ...) {
+  if (missing(session)) {
+    stop("Must provide a session, an inputId, and a value")
+  }
+
+  values <- list(...)
+  if (is.null(names(values)) || any(names(values) == "")) {
+    stop("All arguments must be named. Please specify inputId and value pairs as inputId = value.")
+  }
+
+  session$sendCustomMessage("streamBox", values)
+
+  invisible()
+}
