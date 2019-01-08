@@ -331,10 +331,16 @@ Shiny.addCustomMessageHandler('streamBox', function(data) {
       // update value
       if (el.classList.contains("small-box")) {
         // for valueBox
-        el.getElementsByClassName("value-box-value")[0].innerText = val;
+        vb = el.getElementsByClassName("value-box-value")[0];
+        vb.innerText = val;
+        vb.classList.add("box-value-updated");
+        setTimeout(function() {vb.classList.remove("box-value-updated")}, 1000);
       } else if (el.classList.contains("info-box")) {
         // for infoBox
-        el.getElementsByClassName("info-box-number")[0].innerText = val;
+        ib = el.getElementsByClassName("info-box-number")[0];
+        ib.innerText = val;
+        ib.classList.add("box-value-updated");
+        setTimeout(function() {ib.classList.remove("box-value-updated");}, 1000);
       }
     });
   });
