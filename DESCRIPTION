@@ -18,7 +18,6 @@ Imports:
     utils,
     shiny (>= 1.0.0),
     htmltools (>= 0.2.6),
-    promises,
-    rlang
+    promises
 BugReports: https://github.com/rstudio/shinydashboard
 RoxygenNote: 6.1.1

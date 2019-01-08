@@ -4,15 +4,15 @@
 \alias{updateBoxValue}
 \title{Update the value of an infoBox or valueBox}
 \usage{
-updateBoxValue(session, ...)
+updateBoxValue(session, inputId, value)
 }
 \arguments{
 \item{session}{The session object that the infoBox
 or valueBox belongs to}
 
-\item{...}{name=value pairs, where name is the id
-(unique identifier) of an infoBox or valueBox, and
-value is the value the box should display}
+\item{inputId}{An optional id to uniquely identify the box}
+
+\item{value}{The value to display in the box. Usually a number or short text.}
 }
 \description{
 This function allows you to update the value of

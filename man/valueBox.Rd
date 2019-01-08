@@ -5,7 +5,7 @@
 \title{Create a value box for the main body of a dashboard.}
 \usage{
 valueBox(value, subtitle, icon = NULL, color = "aqua", width = 4,
-  href = NULL, id = NULL)
+  href = NULL, inputId = NULL)
 }
 \arguments{
 \item{value}{The value to display in the box. Usually a number or short text.}
@@ -25,7 +25,7 @@ contains the box.}
 
 \item{href}{An optional URL to link to.}
 
-\item{id}{An optional id to uniquely identify the box}
+\item{inputId}{An optional id to uniquely identify the box}
 }
 \description{
 A value box displays a value (usually a number) in large text, with a smaller

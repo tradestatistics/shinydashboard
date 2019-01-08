@@ -11,19 +11,19 @@
 #' @param color A color for the box. Valid colors are listed in
 #'   \link{validColors}.
 #' @param href An optional URL to link to.
-#' @param id An optional id to uniquely identify the box
+#' @param inputId An optional id to uniquely identify the box
 #'
 #' @family boxes
 #' @seealso \code{\link{box}} for usage examples.
 #'
 #' @export
 valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
-  href = NULL, id = NULL)
+  href = NULL, inputId = NULL)
 {
   validateColor(color)
   if (!is.null(icon)) tagAssert(icon, type = "i")
 
-  boxContent <- div(id = id, class = paste0("small-box bg-", color),
+  boxContent <- div(id = inputId, class = paste0("small-box bg-", color),
     div(class = "inner",
       h3(class = "value-box-value", value),
       p(subtitle)
@@ -60,7 +60,7 @@ valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #'   content; the icon will use the same color with a slightly darkened
 #'   background.
 #' @param href An optional URL to link to.
-#' @param id An optional id to uniquely identify the box
+#' @param inputId An optional id to uniquely identify the box
 #'
 #' @family boxes
 #' @seealso \code{\link{box}} for usage examples.
@@ -68,7 +68,7 @@ valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
 #' @export
 infoBox <- function(title, value = NULL, subtitle = NULL,
   icon = shiny::icon("bar-chart"), color = "aqua", width = 4, href = NULL,
-  fill = FALSE, id = NULL) {
+  fill = FALSE, inputId = NULL) {
 
   validateColor(color)
   tagAssert(icon, type = "i")
@@ -76,7 +76,7 @@ infoBox <- function(title, value = NULL, subtitle = NULL,
   colorClass <- paste0("bg-", color)
 
   boxContent <- div(
-    id = id,
+    id = inputId,
     class = "info-box",
     class = if (fill) colorClass,
     span(
@@ -418,22 +418,18 @@ tabBox <- function(..., id = NULL, selected = NULL, title = NULL,
 #'
 #' @param session The session object that the infoBox
 #' or valueBox belongs to
-#' @param ... name=value pairs, where name is the id
-#' (unique identifier) of an infoBox or valueBox, and
-#' value is the value the box should display
+#' @inheritParams valueBox
 #'
 #' @family boxes
 #' @seealso \code{\link{infoBox}}, \code{\link{valueBox}}
 #'
 #' @export
-updateBoxValue <- function(session, ...) {
+updateBoxValue <- function(session, inputId, value) {
   if (missing(session)) {
-    stop("Must provide a session, a name, and a value")
+    stop("Must provide a session, an inputId, and a value")
   }
 
-  li <- rlang::list2(...)
-
-  session$sendCustomMessage("streamBox", li)
+  session$sendCustomMessage("streamBox", setNames(list(value), inputId))
 
   invisible()
 }

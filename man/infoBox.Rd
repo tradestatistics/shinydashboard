@@ -6,7 +6,7 @@
 \usage{
 infoBox(title, value = NULL, subtitle = NULL,
   icon = shiny::icon("bar-chart"), color = "aqua", width = 4,
-  href = NULL, fill = FALSE, id = NULL)
+  href = NULL, fill = FALSE, inputId = NULL)
 }
 \arguments{
 \item{title}{Title text.}
@@ -34,7 +34,7 @@ content, and the \code{color} argument for the background of the icon. If
 content; the icon will use the same color with a slightly darkened
 background.}
 
-\item{id}{An optional id to uniquely identify the box}
+\item{inputId}{An optional id to uniquely identify the box}
 }
 \description{
 An info box displays a large icon on the left side, and a title, value
