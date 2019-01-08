@@ -5,7 +5,8 @@
 \title{Dashboard page}
 \usage{
 dashboardPage(header, sidebar, body, title = NULL, skin = c("blue",
-  "black", "purple", "green", "red", "yellow"))
+  "black", "purple", "green", "red", "yellow"), theme = NULL,
+  sidebar_mini = FALSE)
 }
 \arguments{
 \item{header}{A header created by \code{dashboardHeader}.}
@@ -19,6 +20,13 @@ provided, it will try to extract the title from the \code{dashboardHeader}.}
 
 \item{skin}{A color theme. One of \code{"blue"}, \code{"black"},
 \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.}
+
+\item{theme}{CSS files to be used in place of the shinydashboard AdminLTE
+theme. Typically, this will be \code{c("AdminLTE.css", "_all-skins.css")}.
+CSS files should be placed in \code{www/}.}
+
+\item{sidebar_mini}{If \code{TRUE}, enables the mini sidebar when the sidebar
+is collapsed.}
 }
 \description{
 This creates a dashboard page for use in a Shiny app.
