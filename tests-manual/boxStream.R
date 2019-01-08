@@ -7,8 +7,9 @@ ui <- dashboardPage(
     dashboardBody(
         valueBoxOutput("value_box"),
         infoBoxOutput("info_box"),
-        infoBox("Title", 45, "Subtitle", icon = icon("bar-chart"), id = "testbox"),
-        valueBox(id = "someid", 45, "Subtitle", icon = icon("dashboard"))
+        infoBox("Title", 45, "Subtitle", icon = icon("bar-chart"), inputId = "testbox"),
+        valueBox(inputId = "someid", 45, "Subtitle", icon = icon("dashboard")),
+        valueBox(45, "Subtitle", "green", icon = icon("r-project"), inputId = "singlebox")
     ),
     title = "Test Streaming"
 )
@@ -22,14 +23,19 @@ server <- function(input, output, session) {
       infoBox("Title", value(), "Subtitle", icon = icon("bar-chart"))
   })
     observe({
-        invalidateLater(1000)
+        invalidateLater(3000)
         isolate(value(value() + 1))
         print(paste("Updated value:", value()))
-        updateBoxValue(
+        updateBoxValues(
           session,
           someid = value(),
           testbox = value()
         )
+        updateBoxValue(session, "singlebox", value() - 45)
+        ## Errors
+        # updateBoxValues(session, 12)
+        ## Warning: Error in updateBoxValues: All arguments must be named.
+        ## Please specify inputId and value pairs as inputId = value.
     })
 }
 
