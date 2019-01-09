@@ -19,7 +19,8 @@ dashboardPage(header, sidebar, body, title = NULL, skin = c("blue",
 provided, it will try to extract the title from the \code{dashboardHeader}.}
 
 \item{skin}{A color theme. One of \code{"blue"}, \code{"black"},
-\code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.}
+\code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
+Light themes are allowed if using a theme other than the shinydashboard theme.}
 
 \item{theme}{CSS files to be used in place of the shinydashboard AdminLTE
 theme. Typically, this will be \code{c("AdminLTE.css", "_all-skins.css")}.
