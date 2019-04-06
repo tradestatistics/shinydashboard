@@ -79,3 +79,17 @@ a > .info-box {
   font-family: fontAwesome, 'Font Awesome 5 Free';
   font-weight: 900;
 }
+
+/* Add a small animation to updateBoxValue() */
+@keyframes updated {
+  0% {
+    text-shadow: 0 0 10px #fff;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+.box-value-updated {
+  animation: updated ease-out 2s;
+}
