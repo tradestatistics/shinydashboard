@@ -33,7 +33,10 @@ the new `value` for that `inputId`, e.g. `boxId = 12`.
 \seealso{
 \code{\link{infoBox}}, \code{\link{valueBox}}
 
-Other boxes: \code{\link{box}}, \code{\link{infoBox}},
-  \code{\link{tabBox}}, \code{\link{valueBox}}
+Other boxes: 
+\code{\link{box}()},
+\code{\link{infoBox}()},
+\code{\link{tabBox}()},
+\code{\link{valueBox}()}
 }
 \concept{boxes}

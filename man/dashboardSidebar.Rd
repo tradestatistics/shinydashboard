@@ -4,8 +4,7 @@
 \alias{dashboardSidebar}
 \title{Create a dashboard sidebar.}
 \usage{
-dashboardSidebar(..., disable = FALSE, width = NULL,
-  collapsed = FALSE)
+dashboardSidebar(..., disable = FALSE, width = NULL, collapsed = FALSE)
 }
 \arguments{
 \item{...}{Items to put in the sidebar.}

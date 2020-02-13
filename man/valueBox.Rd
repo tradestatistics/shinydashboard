@@ -4,8 +4,15 @@
 \alias{valueBox}
 \title{Create a value box for the main body of a dashboard.}
 \usage{
-valueBox(value, subtitle, icon = NULL, color = "aqua", width = 4,
-  href = NULL, inputId = NULL)
+valueBox(
+  value,
+  subtitle,
+  icon = NULL,
+  color = "aqua",
+  width = 4,
+  href = NULL,
+  inputId = NULL
+)
 }
 \arguments{
 \item{value}{The value to display in the box. Usually a number or short text.}
@@ -35,7 +42,10 @@ to be placed in the main body of a dashboard.
 \seealso{
 \code{\link{box}} for usage examples.
 
-Other boxes: \code{\link{box}}, \code{\link{infoBox}},
-  \code{\link{tabBox}}, \code{\link{updateBoxValue}}
+Other boxes: 
+\code{\link{box}()},
+\code{\link{infoBox}()},
+\code{\link{tabBox}()},
+\code{\link{updateBoxValue}()}
 }
 \concept{boxes}
